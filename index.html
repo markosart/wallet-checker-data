@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mechanica Token Checker</title>
 <meta name="description" content="Check your $MECHANICA token allocation.">
+<link rel="canonical" href="https://mechanica.fun">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mechanica.fun">
+<meta property="og:title" content="Mechanica Token Checker">
+<meta property="og:description" content="Check your $MECHANICA token allocation.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mechanica Token Checker">
+<meta name="twitter:description" content="Check your $MECHANICA token allocation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -138,28 +146,29 @@ button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
     <div class="headrule" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   </header>
 
-  <!-- FOLLOW TASK -->
-  <section class="sheet" id="panel-follow">
-    <div class="sheet-label"><span>REQUIRED TASK</span><b id="follow-flag">PENDING</b></div>
-    <div class="task">
-      <p>Please follow <strong>@RoyalMechanica</strong> on X before checking your allocation.</p>
-    </div>
-    <div class="btnrow two">
-      <button class="ghost" id="btn-follow">Follow on X</button>
-      <button class="key" id="btn-followed">I have followed</button>
-    </div>
-    <div class="msg" id="msg-follow" hidden role="status"></div>
-  </section>
-
   <!-- WALLET ENTRY -->
   <section class="sheet" id="panel-wallet">
-    <div class="sheet-label"><span>WALLET ENTRY</span><b id="wallet-flag">LOCKED</b></div>
+    <div class="sheet-label"><span>WALLET ENTRY</span><b id="wallet-flag">OPEN</b></div>
     <label class="fl" for="wallet">WALLET ADDRESS</label>
     <input type="text" id="wallet" inputmode="text" autocomplete="off" autocapitalize="none"
            spellcheck="false" maxlength="42" placeholder="0x0000000000000000000000000000000000000000">
-    <div class="btnrow"><button id="btn-check" class="key" disabled>Check allocation</button></div>
+    <div class="btnrow"><button id="btn-check" class="key">Check allocation</button></div>
     <div class="msg" id="msg-wallet" hidden role="alert"></div>
-    <p class="note" id="wallet-note">Complete the follow task above to unlock the checker.</p>
+    <p class="note" id="wallet-note">One wallet at a time. Each wallet is checked separately.</p>
+  </section>
+
+  <!-- REQUIRED TASK -->
+  <section class="sheet" id="panel-follow" hidden>
+    <div class="sheet-label"><span>REQUIRED TASK</span><b id="follow-flag">LOCKED</b></div>
+    <div class="task">
+      <p><strong>FOLLOW @RoyalMechanica</strong></p>
+      <p style="margin-top:8px">Please follow @RoyalMechanica on X before checking your $MECHANICA allocation.</p>
+    </div>
+    <div class="btnrow two">
+      <button class="ghost" id="btn-follow">Follow on X</button>
+      <button class="key" id="btn-verify" disabled>Verify follow</button>
+    </div>
+    <div class="msg" id="msg-follow" hidden role="status"></div>
   </section>
 
   <!-- PROCESSING -->
@@ -255,7 +264,7 @@ button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
    their allocation category only. No credentials belong here.
    ================================================================== */
 const DATA_BASE   = "./";
-const CHECKER_URL = "https://mechanica.xyz";
+const CHECKER_URL = "https://mechanica.fun";
 const X_ACCOUNT   = "RoyalMechanica";
 
 /* Allocation mapping. The record's category decides which one applies. */
@@ -375,45 +384,61 @@ async function lookupWallet(input){
 }
 
 /* ---------- follow gate ---------- */
-function unlockChecker(){
+let pendingWallet = "";
+
+function markFollowDone(){
   state.followed = true;
-  $("btn-check").disabled = false;
-  $("follow-flag").textContent = "COMPLETE";
+  $("follow-flag").textContent = "COMPLETED";
   $("follow-flag").classList.add("done");
-  $("wallet-flag").textContent = "OPEN";
-  $("btn-followed").disabled = true;
-  $("wallet-note").textContent = "One wallet at a time. Each wallet is checked separately.";
+  saveLocal({ followStepDone:true });
 }
 $("btn-follow").addEventListener("click", () => {
   window.open("https://x.com/"+X_ACCOUNT, "_blank", "noopener");
-});
-$("btn-followed").addEventListener("click", () => {
-  unlockChecker();
-  saveLocal({ followTaskDone:true });
-  msg("msg-follow","Follow task marked as done. The checker is now unlocked.", true);
+  $("btn-verify").disabled = false;
+  msg("msg-follow","When you have followed @RoyalMechanica, return here and click VERIFY FOLLOW.", true);
   click(1200);
-  $("wallet").focus();
+});
+$("btn-verify").addEventListener("click", async () => {
+  markFollowDone();
+  clearMsg("msg-follow");
+  $("panel-follow").hidden = true;
+  await startCheck(pendingWallet, true);
 });
 
 /* ---------- check ---------- */
-$("btn-check").addEventListener("click", runCheck);
-
-async function runCheck(){
+$("btn-check").addEventListener("click", () => {
   clearMsg("msg-wallet");
-  if (!state.followed) return msg("msg-wallet","PLEASE COMPLETE THE FOLLOW TASK FIRST.");
-
   const raw = $("wallet").value.trim();
   if (!isWallet(raw)) return msg("msg-wallet","PLEASE ENTER A VALID WALLET ADDRESS.");
-  const wallet = raw.toLowerCase();
+  pendingWallet = raw.toLowerCase();
 
+  // The allocation stays locked until the follow step is completed.
+  if (!state.followed){
+    $("panel-wallet").hidden = true;
+    $("btn-verify").disabled = true;
+    clearMsg("msg-follow");
+    $("panel-follow").hidden = false;
+    $("panel-follow").scrollIntoView({ behavior: REDUCED?"auto":"smooth", block:"start" });
+    click(1000);
+    return;
+  }
+  startCheck(pendingWallet, false);
+});
+
+async function startCheck(wallet, fromVerify){
   $("panel-follow").hidden = true;
   $("panel-wallet").hidden = true;
   showPanel("panel-run");
   $("run-bar").style.width = "0";
   const line = $("run-line");
 
+  if (fromVerify){
+    await type(line,"VERIFYING FOLLOW STEP...",34);
+    $("run-bar").style.width = "25%";
+  }
+
   await type(line,"CHECKING WALLET...",38);
-  $("run-bar").style.width = "45%";
+  $("run-bar").style.width = "55%";
 
   let rec;
   try{
@@ -421,9 +446,8 @@ async function runCheck(){
   }catch(err){
     dbg(err.message);
     showPanel(null);
-    $("panel-follow").hidden = false;
     $("panel-wallet").hidden = false;
-    return msg("msg-wallet","TOKEN DATA IS TEMPORARILY UNAVAILABLE. PLEASE TRY AGAIN LATER.");
+    return msg("msg-wallet","THE ALLOCATION DATABASE IS TEMPORARILY UNAVAILABLE. PLEASE TRY AGAIN.");
   }
 
   await type(line,"READING ALLOCATION RECORD...",34);
@@ -603,7 +627,7 @@ Array.prototype.forEach.call(document.querySelectorAll(".check-another"), b => {
     $("result-bar").style.width="0"; $("comm-bar").style.width="0";
     clearMsg("msg-wallet"); clearMsg("msg-boost"); clearMsg("msg-comm");
     showPanel(null);
-    $("panel-follow").hidden = false;
+    $("panel-follow").hidden = true;
     $("panel-wallet").hidden = false;
     window.scrollTo({ top:0, behavior: REDUCED?"auto":"smooth" });
     $("wallet").focus();
@@ -617,9 +641,9 @@ window.addEventListener("unhandledrejection", e => { e.preventDefault && e.preve
 (function init(){
   const p = document.querySelector(".platen");
   for (let i=0;i<44;i++) p.appendChild(document.createElement("i"));
-  if (readLocal().followTaskDone) unlockChecker();
+  if (readLocal().followStepDone) markFollowDone();
   $("wallet").addEventListener("keydown", e => {
-    if (e.key === "Enter" && !$("btn-check").disabled) runCheck();
+    if (e.key === "Enter") $("btn-check").click();
   });
 })();
 </script>
