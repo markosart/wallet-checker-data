@@ -43,29 +43,14 @@ body::before{
 }
 .wrap{position:relative;z-index:1;width:100%;max-width:620px;margin:0 auto;padding:0 16px}
 
-/* ---------- machine header ---------- */
-.machine-top{
-  border-bottom:2px solid var(--navy);
-  background:var(--navy);
-  padding:6px 0 5px;
-}
-.platen{
-  display:flex;gap:3px;justify-content:center;align-items:flex-end;height:14px;
-}
+.machine-top{border-bottom:2px solid var(--navy);background:var(--navy);padding:6px 0 5px}
+.platen{display:flex;gap:3px;justify-content:center;align-items:flex-end;height:14px}
 .platen i{display:block;width:5px;height:6px;background:rgba(242,235,218,.28)}
 .platen i:nth-child(4n){background:var(--lime);height:11px}
 .platen i:nth-child(7n){background:var(--yellow);height:9px}
 
-header.head{border-bottom:1px solid var(--rule-strong);padding:22px 0 16px;margin-bottom:26px}
-.stamp{
-  display:inline-block;border:1px solid var(--rule-strong);
-  padding:2px 8px;font-size:11px;letter-spacing:.16em;color:var(--ink-soft);
-  margin-bottom:14px;
-}
-h1{
-  font-size:clamp(24px,7.2vw,38px);line-height:1.05;font-weight:700;
-  letter-spacing:.02em;text-transform:uppercase;
-}
+header.head{border-bottom:1px solid var(--rule-strong);padding:26px 0 16px;margin-bottom:26px}
+h1{font-size:clamp(24px,7.2vw,38px);line-height:1.05;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
 h1 .split{display:block}
 .sub{margin-top:10px;font-size:14px;color:var(--ink-soft)}
 .headrule{display:flex;gap:4px;margin-top:16px}
@@ -75,13 +60,7 @@ h1 .split{display:block}
 .headrule span:nth-child(3){background:var(--orange)}
 .headrule span:nth-child(4){background:var(--mint)}
 
-/* ---------- sheet / panels ---------- */
-.sheet{
-  border:1px solid var(--rule-strong);
-  background:rgba(255,253,246,.55);
-  padding:20px 16px;
-  margin-bottom:20px;
-}
+.sheet{border:1px solid var(--rule-strong);background:rgba(255,253,246,.55);padding:20px 16px;margin-bottom:20px}
 .sheet[hidden]{display:none}
 .sheet-label{
   font-size:11px;letter-spacing:.18em;color:var(--ink-soft);
@@ -94,8 +73,7 @@ label.fl{display:block;font-size:12px;letter-spacing:.14em;color:var(--ink-soft)
 input[type=text]{
   width:100%;font-family:var(--mono);font-size:15px;color:var(--ink);
   background:var(--paper);border:1px solid var(--rule-strong);border-radius:0;
-  padding:13px 12px;letter-spacing:.02em;
-  overflow-wrap:break-word;
+  padding:13px 12px;letter-spacing:.02em;overflow-wrap:break-word;
 }
 input[type=text]:focus{outline:2px solid var(--mint);outline-offset:1px;background:#fffdf6}
 input::placeholder{color:rgba(74,84,104,.55)}
@@ -118,40 +96,21 @@ button.key:hover{background:#d4ff54}
 .btnrow{display:grid;gap:10px;margin-top:14px}
 .mt{margin-top:16px}
 
-/* ---------- ledger ---------- */
-.ledger{border-top:1px solid var(--rule);margin-top:18px}
-.row{
-  display:flex;justify-content:space-between;align-items:baseline;gap:14px;
-  border-bottom:1px solid var(--rule);padding:11px 0;font-size:13px;
-}
-.row dt{color:var(--ink-soft);letter-spacing:.1em;font-size:11px;white-space:nowrap}
-.row dd{text-align:right;overflow-wrap:anywhere}
-
-/* ---------- messages ---------- */
 .msg{font-size:13px;margin-top:12px;padding:10px 12px;border-left:3px solid var(--orange);background:rgba(242,107,33,.09)}
 .msg.ok{border-left-color:var(--mint);background:rgba(53,196,181,.1)}
 .msg[hidden]{display:none}
 .note{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6}
 
-/* ---------- verification ---------- */
-.task{border:1px dashed var(--rule-strong);padding:14px;margin-bottom:14px}
+.task{border:1px dashed var(--rule-strong);padding:14px;margin-bottom:16px}
 .task p{font-size:13.5px;line-height:1.6}
-.captcha{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}
-#capcanvas{border:1px solid var(--rule-strong);background:var(--paper-2);display:block;max-width:100%;height:auto}
-.captcha .cap-in{flex:1;min-width:130px}
-.reload{
-  width:auto;padding:8px 10px;font-size:11px;letter-spacing:.1em;
-  background:transparent;color:var(--ink-soft);border-color:var(--rule);box-shadow:none;
-}
 
-/* ---------- printing / result ---------- */
 .printer{font-size:14px;letter-spacing:.06em;color:var(--ink-soft);min-height:22px}
 .caret::after{content:"▌";color:var(--orange);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 
 .result-head{
-  font-size:clamp(18px,5.4vw,24px);font-weight:700;text-transform:uppercase;letter-spacing:.06em;
-  border-bottom:2px solid var(--navy);padding-bottom:10px;margin-bottom:4px;min-height:34px;
+  font-size:clamp(17px,5vw,23px);font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  border-bottom:2px solid var(--navy);padding-bottom:10px;margin-bottom:4px;min-height:34px;line-height:1.25;
 }
 .wallet-chip{
   display:inline-block;margin-top:14px;border:1px solid var(--rule-strong);
@@ -164,11 +123,12 @@ button.key:hover{background:#d4ff54}
 }
 .alloc small{font-size:.42em;letter-spacing:.06em;display:block;margin-top:6px;color:var(--ink-soft);font-weight:400}
 .alloc-bar{height:6px;background:var(--lime);margin-top:14px;width:0;transition:width .5s ease-out}
+.alloc-bar.warm{background:var(--yellow)}
 
-.boost{border-top:2px solid var(--navy);margin-top:26px;padding-top:18px}
-.boost h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.boost .amount{font-size:clamp(22px,7vw,34px);font-weight:700;margin-top:10px;color:var(--navy)}
-.boost .amount em{font-style:normal;color:var(--orange)}
+.block{border-top:2px solid var(--navy);margin-top:26px;padding-top:18px}
+.block h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.block .amount{font-size:clamp(22px,7vw,34px);font-weight:700;margin-top:10px;color:var(--navy)}
+.block .amount em{font-style:normal;color:var(--orange)}
 .steps{margin:14px 0 0;padding:0;list-style:none;counter-reset:s}
 .steps li{
   counter-increment:s;font-size:13px;color:var(--ink-soft);
@@ -179,15 +139,11 @@ button.key:hover{background:#d4ff54}
   width:17px;height:17px;border:1px solid var(--rule-strong);
   font-size:10px;display:flex;align-items:center;justify-content:center;color:var(--ink);
 }
-footer{text-align:center;font-size:11px;color:var(--ink-soft);letter-spacing:.1em;margin-top:34px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (min-width:560px){
   .btnrow.two{grid-template-columns:1fr 1fr}
   .sheet{padding:24px 22px}
 }
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -197,13 +153,12 @@ footer{text-align:center;font-size:11px;color:var(--ink-soft);letter-spacing:.1e
 <div class="wrap">
 
   <header class="head">
-    <span class="stamp">SERIES 01 &nbsp;·&nbsp; ALLOCATION UNIT</span>
     <h1><span class="split">Mechanica</span><span class="split">Token Checker</span></h1>
     <p class="sub">Check your $MECHANICA token allocation.</p>
     <div class="headrule" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   </header>
 
-  <!-- 1. WALLET INPUT -->
+  <!-- WALLET ENTRY -->
   <section class="sheet" id="panel-wallet">
     <div class="sheet-label"><span>WALLET ENTRY</span><b>OPEN</b></div>
     <label class="fl" for="wallet">WALLET ADDRESS</label>
@@ -214,44 +169,35 @@ footer{text-align:center;font-size:11px;color:var(--ink-soft);letter-spacing:.1e
     <p class="note">One wallet at a time. Each wallet is checked independently.</p>
   </section>
 
-  <!-- 2. VERIFICATION GATE -->
+  <!-- MANDATORY FOLLOW -->
   <section class="sheet" id="panel-gate" hidden>
-    <div class="sheet-label"><span>ACCESS VERIFICATION</span><b>REQUIRED</b></div>
+    <div class="sheet-label"><span>REQUIRED TASK</span><b>FOLLOW</b></div>
 
     <div class="task">
-      <p>Before checking your allocation, please follow <strong>@RoyalMechanica</strong> on X.</p>
+      <p>Please follow <strong>@RoyalMechanica</strong> on X before checking your allocation.</p>
       <div class="btnrow"><button class="ghost" id="btn-follow">Follow on X</button></div>
     </div>
 
     <label class="fl" for="xhandle">YOUR X USERNAME</label>
     <input type="text" id="xhandle" autocomplete="off" autocapitalize="none" spellcheck="false"
            maxlength="16" placeholder="@yourhandle">
-
-    <div class="captcha">
-      <canvas id="capcanvas" width="168" height="54" role="img" aria-label="Verification code image"></canvas>
-      <div class="cap-in">
-        <label class="fl" for="capinput">TYPE THE CODE</label>
-        <input type="text" id="capinput" autocomplete="off" autocapitalize="characters"
-               spellcheck="false" maxlength="5" placeholder="_____">
-      </div>
-      <button class="reload" id="btn-reload" type="button">New code</button>
-    </div>
+    <p class="note">Your username is recorded with your check so the follow can be reviewed before allocations are distributed.</p>
 
     <div class="btnrow two mt">
-      <button id="btn-verify" class="key">Verify follow</button>
+      <button id="btn-continue" class="key">Continue to check</button>
       <button id="btn-gate-back" class="ghost">Back</button>
     </div>
     <div class="msg" id="msg-gate" hidden role="alert"></div>
   </section>
 
-  <!-- 3. PROCESSING -->
+  <!-- PROCESSING -->
   <section class="sheet" id="panel-run" hidden>
     <div class="sheet-label"><span>MACHINE STATUS</span><b>RUNNING</b></div>
-    <p class="printer caret" id="run-line">VERIFYING ACCESS</p>
+    <p class="printer caret" id="run-line">CHECKING WALLET</p>
     <div class="alloc-bar" id="run-bar" style="width:0"></div>
   </section>
 
-  <!-- 4. RESULT -->
+  <!-- ELIGIBLE RESULT -->
   <section class="sheet" id="panel-result" hidden>
     <div class="sheet-label"><span>ALLOCATION RECORD</span><b id="result-flag">PRINTING</b></div>
 
@@ -262,8 +208,7 @@ footer{text-align:center;font-size:11px;color:var(--ink-soft);letter-spacing:.1e
     <p class="alloc" id="result-alloc">0<small>$MECHANICA</small></p>
     <div class="alloc-bar" id="result-bar"></div>
 
-    <!-- BOOST -->
-    <div class="boost" id="boost-block">
+    <div class="block" id="boost-block">
       <h2>Boost your allocation</h2>
       <p class="note" style="margin-top:8px">You may request a 1.5× allocation by sharing your verified allocation on X.</p>
       <p class="amount">Potential: <em id="boost-amount">0</em> $MECHANICA</p>
@@ -272,11 +217,11 @@ footer{text-align:center;font-size:11px;color:var(--ink-soft);letter-spacing:.1e
         <li>Download your allocation proof.</li>
         <li>Post it on X with the checker link.</li>
         <li>Tag @RoyalMechanica in the post.</li>
-        <li>Submit the post link below for review.</li>
+        <li>Submit the post link below for verification.</li>
       </ol>
 
       <div class="btnrow two mt">
-        <button class="ghost" id="btn-proof">Download allocation proof</button>
+        <button class="ghost" id="btn-proof">Download proof</button>
         <button class="ghost" id="btn-copy">Copy X post</button>
       </div>
 
@@ -285,22 +230,66 @@ footer{text-align:center;font-size:11px;color:var(--ink-soft);letter-spacing:.1e
         <input type="text" id="posturl" autocomplete="off" spellcheck="false" maxlength="300"
                placeholder="https://x.com/username/status/000000">
         <div class="btnrow two mt">
-          <button id="btn-post" class="key">Verify post</button>
+          <button id="btn-post" class="key">Submit X post</button>
           <button id="btn-refresh" class="ghost">Refresh status</button>
         </div>
       </div>
       <div class="msg" id="msg-boost" hidden role="alert"></div>
     </div>
 
-    <div class="btnrow mt"><button class="ghost" id="btn-another">Check another wallet</button></div>
+    <div class="btnrow mt"><button class="ghost check-another">Check another wallet</button></div>
   </section>
 
-  <footer>MECHANICA ALLOCATION UNIT · SERIES 01</footer>
+  <!-- COMMUNITY RESULT -->
+  <section class="sheet" id="panel-community" hidden>
+    <div class="sheet-label"><span>CHECK RESULT</span><b id="comm-flag">PRINTING</b></div>
+
+    <h2 class="result-head" id="comm-title"></h2>
+    <div class="wallet-chip" id="comm-wallet"></div>
+
+    <p class="note" style="margin-top:16px">Your wallet does not currently qualify for the standard $MECHANICA allocation. You may still request a community allocation by sharing your verification result on X.</p>
+
+    <div class="block" id="comm-block">
+      <h2 id="comm-heading">Community allocation</h2>
+      <p class="alloc" id="comm-alloc" style="margin-top:12px">0<small>$MECHANICA</small></p>
+      <div class="alloc-bar warm" id="comm-bar"></div>
+      <p class="note">Although your wallet does not qualify for the standard allocation, you may request a 1,568 $MECHANICA community allocation by sharing your checker result on X.</p>
+
+      <ol class="steps">
+        <li>Download your checker result.</li>
+        <li>Post it on X with the checker link.</li>
+        <li>Tag @RoyalMechanica in the post.</li>
+        <li>Submit the post link below for verification.</li>
+      </ol>
+
+      <div class="btnrow two mt">
+        <button class="ghost" id="btn-cproof">Download proof</button>
+        <button class="ghost" id="btn-ccopy">Copy X post</button>
+      </div>
+
+      <div class="mt">
+        <label class="fl" for="cposturl">X POST LINK</label>
+        <input type="text" id="cposturl" autocomplete="off" spellcheck="false" maxlength="300"
+               placeholder="https://x.com/username/status/000000">
+        <div class="btnrow two mt">
+          <button id="btn-cpost" class="key">Submit X post</button>
+          <button id="btn-crefresh" class="ghost">Refresh status</button>
+        </div>
+      </div>
+      <div class="msg" id="msg-comm" hidden role="alert"></div>
+    </div>
+
+    <div class="btnrow mt"><button class="ghost check-another">Check another wallet</button></div>
+  </section>
+
 </div>
 
 <script>
 /* ==================================================================
    CONFIGURATION — EDIT THESE THREE LINES ONLY
+   The endpoint below is not a secret and is not the security boundary.
+   All eligibility, allocation and verification decisions are made and
+   validated on the server.
    ================================================================== */
 const API_URL     = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
 const CHECKER_URL = "https://mechanica.xyz";
@@ -309,17 +298,13 @@ const X_ACCOUNT   = "RoyalMechanica";
 
 const $ = id => document.getElementById(id);
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const PANELS = ["panel-wallet","panel-gate","panel-run","panel-result","panel-community"];
 
-const state = { wallet:"", token:"", alloc:0, boost:0, display:"", handle:"" };
+const state = { wallet:"", token:"", mode:"", alloc:0, boost:0, community:0, display:"", handle:"" };
 
-/* ---------- helpers ---------- */
 const fmt = n => Number(n).toLocaleString("en-US",{maximumFractionDigits:1});
-const show = (...ids) => { ["panel-wallet","panel-gate","panel-run","panel-result"]
-  .forEach(p => $(p).hidden = !ids.includes(p)); };
-function msg(el, text, ok){
-  const n = $(el); n.hidden = false; n.textContent = text;
-  n.classList.toggle("ok", !!ok);
-}
+const show = id => PANELS.forEach(p => $(p).hidden = (p !== id));
+function msg(el, text, ok){ const n=$(el); n.hidden=false; n.textContent=text; n.classList.toggle("ok",!!ok); }
 function clearMsg(el){ $(el).hidden = true; }
 
 /* ---------- mechanical sound ---------- */
@@ -331,12 +316,11 @@ function click(freq){
     if (actx.state === "suspended") actx.resume();
     const t = actx.currentTime;
     const o = actx.createOscillator(), g = actx.createGain(), f = actx.createBiquadFilter();
-    f.type = "bandpass"; f.frequency.value = freq || 1800; f.Q.value = 6;
-    o.type = "square"; o.frequency.setValueAtTime(freq || 1800, t);
-    g.gain.setValueAtTime(.05, t);
-    g.gain.exponentialRampToValueAtTime(.0007, t + .045);
+    f.type="bandpass"; f.frequency.value=freq||1800; f.Q.value=6;
+    o.type="square"; o.frequency.setValueAtTime(freq||1800,t);
+    g.gain.setValueAtTime(.05,t); g.gain.exponentialRampToValueAtTime(.0007,t+.045);
     o.connect(f); f.connect(g); g.connect(actx.destination);
-    o.start(t); o.stop(t + .05);
+    o.start(t); o.stop(t+.05);
   }catch(e){}
 }
 function ding(){
@@ -345,11 +329,10 @@ function ding(){
     actx = actx || new (window.AudioContext||window.webkitAudioContext)();
     const t = actx.currentTime;
     const o = actx.createOscillator(), g = actx.createGain();
-    o.type = "triangle"; o.frequency.setValueAtTime(1320, t);
-    g.gain.setValueAtTime(.09, t);
-    g.gain.exponentialRampToValueAtTime(.0005, t + .7);
+    o.type="triangle"; o.frequency.setValueAtTime(1320,t);
+    g.gain.setValueAtTime(.09,t); g.gain.exponentialRampToValueAtTime(.0005,t+.7);
     o.connect(g); g.connect(actx.destination);
-    o.start(t); o.stop(t + .72);
+    o.start(t); o.stop(t+.72);
   }catch(e){}
 }
 
@@ -357,26 +340,26 @@ function ding(){
 function type(el, text, speed){
   return new Promise(res => {
     if (REDUCED){ el.textContent = text; return res(); }
-    el.textContent = ""; let i = 0;
+    el.textContent=""; let i=0;
     const step = () => {
       if (i >= text.length) return res();
       el.textContent += text[i];
       if (text[i] !== " ") click(1500 + ((i*137)%700));
-      i++; setTimeout(step, speed || 42);
+      i++; setTimeout(step, speed||42);
     };
     step();
   });
 }
-function countTo(el, target, suffix, ms){
+function countTo(el, target, ms){
   return new Promise(res => {
-    if (REDUCED){ el.innerHTML = fmt(target)+"<small>"+suffix+"</small>"; return res(); }
-    const start = performance.now(), dur = ms || 900;
+    const suffix = "<small>$MECHANICA</small>";
+    if (REDUCED){ el.innerHTML = fmt(target)+suffix; return res(); }
+    const start = performance.now(), dur = ms||900;
     const tick = now => {
-      const p = Math.min(1,(now-start)/dur);
-      const eased = 1 - Math.pow(1-p, 3);
-      el.innerHTML = fmt(Math.round(target*eased*10)/10)+"<small>"+suffix+"</small>";
-      if (p < 1) { if (Math.random()<.4) click(900+Math.random()*500); requestAnimationFrame(tick); }
-      else { el.innerHTML = fmt(target)+"<small>"+suffix+"</small>"; ding(); res(); }
+      const p = Math.min(1,(now-start)/dur), e = 1-Math.pow(1-p,3);
+      el.innerHTML = fmt(Math.round(target*e*10)/10)+suffix;
+      if (p<1){ if (Math.random()<.4) click(900+Math.random()*500); requestAnimationFrame(tick); }
+      else { el.innerHTML = fmt(target)+suffix; ding(); res(); }
     };
     requestAnimationFrame(tick);
   });
@@ -386,48 +369,22 @@ function countTo(el, target, suffix, ms){
 async function api(payload){
   if (!API_URL || API_URL.indexOf("PASTE_") === 0) return { ok:false, code:"GENERIC" };
   try{
-    const r = await fetch(API_URL, { method:"POST", body: JSON.stringify(payload), redirect:"follow" });
-    return await r.json();
+    const r = await fetch(API_URL,{ method:"POST", body:JSON.stringify(payload), redirect:"follow" });
+    const d = await r.json();
+    return (d && typeof d === "object") ? d : { ok:false, code:"GENERIC" };
   }catch(e){ return { ok:false, code:"GENERIC" }; }
 }
 const ERRORS = {
   INVALID_WALLET : "PLEASE ENTER A VALID WALLET ADDRESS.",
-  NOT_ELIGIBLE   : "NO ALLOCATION FOUND FOR THIS WALLET.",
   RATE_LIMIT     : "TOO MANY ATTEMPTS. PLEASE TRY AGAIN LATER.",
   INVALID_POST   : "PLEASE SUBMIT A VALID X POST LINK.",
   DUPLICATE_POST : "THIS X POST HAS ALREADY BEEN USED.",
-  SESSION        : "VERIFICATION COULD NOT BE COMPLETED.",
-  GENERIC        : "VERIFICATION COULD NOT BE COMPLETED."
+  SESSION        : "VERIFICATION COULD NOT BE COMPLETED. PLEASE TRY AGAIN.",
+  GENERIC        : "VERIFICATION COULD NOT BE COMPLETED. PLEASE TRY AGAIN."
 };
 const errText = c => ERRORS[c] || ERRORS.GENERIC;
-
-/* ---------- captcha ---------- */
-let capCode = "";
-function drawCaptcha(){
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  capCode = Array.from({length:5}, () => chars[Math.floor(Math.random()*chars.length)]).join("");
-  const c = $("capcanvas"), x = c.getContext("2d");
-  const W = c.width, H = c.height;
-  x.fillStyle = "#E8DFC9"; x.fillRect(0,0,W,H);
-  x.strokeStyle = "rgba(20,28,46,.16)";
-  for (let y=8; y<H; y+=9){ x.beginPath(); x.moveTo(0,y); x.lineTo(W,y); x.stroke(); }
-  for (let i=0;i<5;i++){
-    x.save();
-    const px = 16 + i*28 + (Math.random()*4-2);
-    const py = H/2 + (Math.random()*8-4);
-    x.translate(px, py);
-    x.rotate((Math.random()*.34)-.17);
-    x.font = "bold 27px 'Courier Prime', 'Courier New', monospace";
-    x.textAlign = "center"; x.textBaseline = "middle";
-    x.fillStyle = ["#16233B","#16233B","#F26B21","#35C4B5"][Math.floor(Math.random()*4)];
-    x.globalAlpha = .78 + Math.random()*.22;
-    x.fillText(capCode[i], 0, 0);
-    x.restore();
-  }
-  x.globalAlpha = .25; x.fillStyle = "#16233B";
-  for (let i=0;i<70;i++) x.fillRect(Math.random()*W, Math.random()*H, 1.4, 1.4);
-  x.globalAlpha = 1;
-}
+window.addEventListener("error", e => { e.preventDefault && e.preventDefault(); });
+window.addEventListener("unhandledrejection", e => { e.preventDefault && e.preventDefault(); });
 
 /* ---------- flow ---------- */
 $("btn-check").addEventListener("click", () => {
@@ -435,8 +392,7 @@ $("btn-check").addEventListener("click", () => {
   const w = $("wallet").value.trim().toLowerCase();
   if (!/^0x[0-9a-f]{40}$/.test(w)) return msg("msg-wallet", ERRORS.INVALID_WALLET);
   state.wallet = w;
-  drawCaptcha();
-  $("capinput").value = ""; $("xhandle").value = ""; clearMsg("msg-gate");
+  $("xhandle").value = ""; clearMsg("msg-gate");
   show("panel-gate"); click(1200);
   $("panel-gate").scrollIntoView({behavior: REDUCED?"auto":"smooth", block:"start"});
 });
@@ -444,17 +400,12 @@ $("btn-check").addEventListener("click", () => {
 $("btn-follow").addEventListener("click", () => {
   window.open("https://x.com/"+X_ACCOUNT, "_blank", "noopener");
 });
-$("btn-reload").addEventListener("click", () => { drawCaptcha(); $("capinput").value=""; click(1000); });
-$("btn-gate-back").addEventListener("click", () => { show("panel-wallet"); });
+$("btn-gate-back").addEventListener("click", () => show("panel-wallet"));
 
-$("btn-verify").addEventListener("click", async () => {
+$("btn-continue").addEventListener("click", async () => {
   clearMsg("msg-gate");
   const h = $("xhandle").value.trim().replace(/^@/,"");
   if (!/^[A-Za-z0-9_]{1,15}$/.test(h)) return msg("msg-gate","PLEASE ENTER YOUR X USERNAME.");
-  if ($("capinput").value.trim().toUpperCase() !== capCode){
-    drawCaptcha(); $("capinput").value = "";
-    return msg("msg-gate","CODE DID NOT MATCH. PLEASE TRY THE NEW CODE.");
-  }
   state.handle = h;
   await runCheck();
 });
@@ -463,53 +414,70 @@ async function runCheck(){
   show("panel-run");
   $("run-bar").style.width = "0";
   const line = $("run-line");
-  await type(line,"VERIFYING ACCESS...",38);
-  $("run-bar").style.width = "38%";
-  const res = await api({ action:"checkWallet", wallet: state.wallet, handle: state.handle });
   await type(line,"CHECKING WALLET...",38);
-  $("run-bar").style.width = "72%";
+  $("run-bar").style.width = "55%";
 
+  const res = await api({ action:"checkWallet", wallet:state.wallet, handle:state.handle });
   if (!res.ok){
     show("panel-wallet");
     return msg("msg-wallet", errText(res.code));
   }
-  if (!res.eligible){
-    show("panel-wallet");
-    return msg("msg-wallet", ERRORS.NOT_ELIGIBLE);
-  }
+
   await type(line,"PREPARING YOUR RESULT...",34);
   $("run-bar").style.width = "100%";
 
   state.token   = res.token;
-  state.alloc   = res.allocation;
-  state.boost   = res.allocationBoost;
   state.display = res.walletDisplay;
-  await printResult();
+  state.mode    = res.status;
+
+  if (res.status === "standard"){
+    state.alloc = res.allocation; state.boost = res.allocationBoost;
+    await printStandard();
+  } else {
+    state.community = res.communityAllocation;
+    await printCommunity();
+  }
 }
 
-async function printResult(){
+async function printStandard(){
   show("panel-result");
   $("result-flag").textContent = "PRINTING";
   $("result-bar").style.width = "0";
   $("result-wallet").textContent = state.display;
   $("result-alloc").innerHTML = "0<small>$MECHANICA</small>";
   $("boost-amount").textContent = fmt(state.boost);
-  $("posturl").value = ""; clearMsg("msg-boost");
-  $("btn-post").disabled = false;
+  $("posturl").value = ""; clearMsg("msg-boost"); $("btn-post").disabled = false;
   $("panel-result").scrollIntoView({behavior: REDUCED?"auto":"smooth", block:"start"});
 
   await type($("result-title"),"ALLOCATION VERIFIED",46);
-  await countTo($("result-alloc"), state.alloc, "$MECHANICA", 950);
+  await countTo($("result-alloc"), state.alloc, 950);
   $("result-bar").style.width = "100%";
   $("result-flag").textContent = "RECORDED";
 }
 
+async function printCommunity(){
+  show("panel-community");
+  $("comm-flag").textContent = "PRINTING";
+  $("comm-bar").style.width = "0";
+  $("comm-wallet").textContent = state.display;
+  $("comm-alloc").innerHTML = "0<small>$MECHANICA</small>";
+  $("cposturl").value = ""; clearMsg("msg-comm"); $("btn-cpost").disabled = false;
+  $("panel-community").scrollIntoView({behavior: REDUCED?"auto":"smooth", block:"start"});
+
+  await type($("comm-title"),"NOT ELIGIBLE FOR THE STANDARD ALLOCATION",34);
+  await type($("comm-heading"),"COMMUNITY ALLOCATION",44);
+  await countTo($("comm-alloc"), state.community, 850);
+  $("comm-bar").style.width = "100%";
+  $("comm-flag").textContent = "REQUEST OPEN";
+}
+
 /* ---------- proof image ---------- */
-function buildProof(){
+function proofCard(){
   const W = 1000, H = 524, c = document.createElement("canvas");
   c.width = W; c.height = H;
   const x = c.getContext("2d");
   const M = "'Courier Prime','Courier New',monospace";
+  const community = state.mode === "community";
 
   x.fillStyle = "#F2EBDA"; x.fillRect(0,0,W,H);
   x.strokeStyle = "rgba(20,28,46,.07)";
@@ -517,134 +485,150 @@ function buildProof(){
 
   x.fillStyle = "#16233B"; x.fillRect(0,0,W,52);
   const cols = ["#C8F73C","#FFC72C","#F26B21","#35C4B5"];
-  for (let i=0;i<40;i++){ x.fillStyle = i%4===0 ? cols[(i/4)%4|0] : "rgba(242,235,218,.25)";
-    x.fillRect(24+i*24, 20, 8, i%4===0?16:10); }
+  for (let i=0;i<40;i++){
+    x.fillStyle = i%4===0 ? cols[(i/4)%4|0] : "rgba(242,235,218,.25)";
+    x.fillRect(24+i*24, 20, 8, i%4===0?16:10);
+  }
 
-  x.fillStyle = "#141C2E";
-  x.font = "700 40px "+M;
+  x.fillStyle="#141C2E"; x.font="700 40px "+M;
   x.fillText("MECHANICA TOKEN CHECKER", 48, 122);
-  x.fillStyle = "#4A5468"; x.font = "17px "+M;
-  x.fillText("ALLOCATION VERIFIED", 48, 154);
+  x.fillStyle="#4A5468"; x.font="17px "+M;
+  x.fillText(community ? "CHECK RESULT" : "ALLOCATION VERIFIED", 48, 154);
 
-  x.strokeStyle = "rgba(20,28,46,.45)"; x.lineWidth = 1;
+  x.strokeStyle="rgba(20,28,46,.45)"; x.lineWidth=1;
   x.beginPath(); x.moveTo(48,178); x.lineTo(W-48,178); x.stroke();
 
-  x.fillStyle = "#4A5468"; x.font = "14px "+M;
-  x.fillText("WALLET", 48, 212);
-  x.fillStyle = "#141C2E"; x.font = "700 26px "+M;
-  x.fillText(state.display, 48, 244);
+  x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("WALLET", 48, 212);
+  x.fillStyle="#141C2E"; x.font="700 26px "+M; x.fillText(state.display, 48, 244);
 
-  x.fillStyle = "#4A5468"; x.font = "14px "+M;
-  x.fillText("CURRENT ALLOCATION", 48, 300);
-  x.fillStyle = "#141C2E"; x.font = "700 54px "+M;
-  x.fillText(fmt(state.alloc)+" $MECHANICA", 48, 350);
+  if (community){
+    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("STATUS", 48, 296);
+    x.fillStyle="#141C2E"; x.font="700 25px "+M;
+    x.fillText("NOT ELIGIBLE FOR STANDARD ALLOCATION", 48, 328);
+    x.fillStyle="#FFC72C"; x.fillRect(48, 350, W-96, 6);
+    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("COMMUNITY ALLOCATION", 48, 396);
+    x.fillStyle="#141C2E"; x.font="700 48px "+M;
+    x.fillText(fmt(state.community)+" $MECHANICA", 48, 448);
+  } else {
+    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("CURRENT ALLOCATION", 48, 300);
+    x.fillStyle="#141C2E"; x.font="700 54px "+M;
+    x.fillText(fmt(state.alloc)+" $MECHANICA", 48, 350);
+    x.fillStyle="#C8F73C"; x.fillRect(48, 368, W-96, 6);
+    x.fillStyle="#4A5468"; x.font="14px "+M;
+    x.fillText("POTENTIAL 1.5\u00D7 ALLOCATION", 48, 412);
+    x.fillStyle="#F26B21"; x.font="700 34px "+M;
+    x.fillText(fmt(state.boost)+" $MECHANICA", 48, 450);
+  }
 
-  x.fillStyle = "#C8F73C"; x.fillRect(48, 368, W-96, 6);
-
-  x.fillStyle = "#4A5468"; x.font = "14px "+M;
-  x.fillText("POTENTIAL 1.5\u00D7 ALLOCATION", 48, 412);
-  x.fillStyle = "#F26B21"; x.font = "700 34px "+M;
-  x.fillText(fmt(state.boost)+" $MECHANICA", 48, 450);
-
-  x.fillStyle = "#16233B"; x.fillRect(0,H-38,W,38);
-  x.fillStyle = "#F2EBDA"; x.font = "15px "+M;
+  x.fillStyle="#16233B"; x.fillRect(0,H-38,W,38);
+  x.fillStyle="#F2EBDA"; x.font="15px "+M;
   x.fillText(CHECKER_URL.replace(/^https?:\/\//,""), 48, H-14);
-  x.textAlign = "right";
-  x.fillText("@"+X_ACCOUNT, W-48, H-14);
+  x.textAlign="right"; x.fillText("@"+X_ACCOUNT, W-48, H-14);
   return c;
 }
-$("btn-proof").addEventListener("click", () => {
-  const c = buildProof();
-  c.toBlob(b => {
-    const u = URL.createObjectURL(b), a = document.createElement("a");
-    a.href = u; a.download = "mechanica-allocation-"+state.display.replace(/[^\w]/g,"")+".png";
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(()=>URL.revokeObjectURL(u), 3000);
-  }, "image/png");
-  msg("msg-boost","ALLOCATION PROOF DOWNLOADED.", true);
-  click(900);
-});
+function downloadProof(msgEl){
+  try{
+    proofCard().toBlob(b => {
+      const u = URL.createObjectURL(b), a = document.createElement("a");
+      a.href = u; a.download = "mechanica-"+state.display.replace(/[^\w]/g,"")+".png";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=>URL.revokeObjectURL(u),3000);
+    },"image/png");
+    msg(msgEl,"PROOF DOWNLOADED.",true); click(900);
+  }catch(e){ msg(msgEl,"DOWNLOAD COULD NOT BE COMPLETED. PLEASE TRY AGAIN."); }
+}
+$("btn-proof").addEventListener("click", () => downloadProof("msg-boost"));
+$("btn-cproof").addEventListener("click", () => downloadProof("msg-comm"));
 
-/* ---------- copy X post ---------- */
+/* ---------- X post text ---------- */
 function postText(){
+  if (state.mode === "community"){
+    return "I checked my $MECHANICA allocation.\n\n"
+         + "My wallet is not eligible for the standard allocation, but I can request a "
+         + fmt(state.community)+" $MECHANICA community allocation.\n\n"
+         + "Check yours:\n"+CHECKER_URL+"\n\n@"+X_ACCOUNT;
+  }
   return "My $MECHANICA allocation has been verified.\n\n"
        + "Current allocation: "+fmt(state.alloc)+" $MECHANICA\n"
        + "Potential 1.5\u00D7 allocation: "+fmt(state.boost)+" $MECHANICA\n\n"
        + "Check your allocation:\n"+CHECKER_URL+"\n\n@"+X_ACCOUNT;
 }
-$("btn-copy").addEventListener("click", async () => {
+async function copyPost(msgEl){
   const t = postText();
-  try{ await navigator.clipboard.writeText(t); msg("msg-boost","X POST TEXT COPIED.", true); }
+  try{ await navigator.clipboard.writeText(t); msg(msgEl,"X POST TEXT COPIED.",true); }
   catch(e){
     const a = document.createElement("textarea");
-    a.value = t; a.style.position="fixed"; a.style.opacity="0";
+    a.value=t; a.style.position="fixed"; a.style.opacity="0";
     document.body.appendChild(a); a.select();
-    try{ document.execCommand("copy"); msg("msg-boost","X POST TEXT COPIED.", true); }
-    catch(_){ msg("msg-boost","COPY UNAVAILABLE. PLEASE COPY MANUALLY."); }
+    try{ document.execCommand("copy"); msg(msgEl,"X POST TEXT COPIED.",true); }
+    catch(_){ msg(msgEl,"COPY UNAVAILABLE. PLEASE COPY THE TEXT MANUALLY."); }
     a.remove();
   }
   click(1100);
-});
+}
+$("btn-copy").addEventListener("click", () => copyPost("msg-boost"));
+$("btn-ccopy").addEventListener("click", () => copyPost("msg-comm"));
 
-/* ---------- submit post ---------- */
-$("btn-post").addEventListener("click", async () => {
-  clearMsg("msg-boost");
-  const url = $("posturl").value.trim();
-  if (!/^https?:\/\/(www\.)?(x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/\d{5,25}(\?.*)?$/.test(url))
-    return msg("msg-boost", ERRORS.INVALID_POST);
+/* ---------- post submission ---------- */
+const POST_RE = /^https?:\/\/(www\.)?(x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/\d{5,25}(\?.*)?$/;
 
-  $("btn-post").disabled = true;
-  msg("msg-boost","VERIFYING X POST...", true);
-  const res = await api({ action:"submitPost", token: state.token, postUrl: url });
+async function submitPost(inputId, btnId, msgEl){
+  clearMsg(msgEl);
+  const url = $(inputId).value.trim();
+  if (!POST_RE.test(url)) return msg(msgEl, ERRORS.INVALID_POST);
 
-  if (!res.ok){
-    $("btn-post").disabled = false;
-    return msg("msg-boost", errText(res.code));
-  }
-  if (res.status === "verified") return boostVerified(res.finalAllocation);
-  msg("msg-boost","POST SUBMITTED FOR VERIFICATION. USE REFRESH STATUS TO CHECK AGAIN.", true);
-});
+  $(btnId).disabled = true;
+  msg(msgEl,"VERIFYING X POST...",true);
+  const res = await api({ action:"submitPost", token:state.token, postUrl:url });
 
-$("btn-refresh").addEventListener("click", async () => {
-  clearMsg("msg-boost");
-  msg("msg-boost","CHECKING STATUS...", true);
-  const res = await api({ action:"boostStatus", token: state.token });
-  if (!res.ok) return msg("msg-boost", errText(res.code));
-  if (res.status === "verified") return boostVerified(res.finalAllocation);
-  if (res.status === "rejected") return msg("msg-boost","VERIFICATION COULD NOT BE COMPLETED.");
-  if (res.status === "none")     return msg("msg-boost","NO POST SUBMITTED YET.");
-  msg("msg-boost","STILL AWAITING VERIFICATION.", true);
-});
+  if (!res.ok){ $(btnId).disabled = false; return msg(msgEl, errText(res.code)); }
+  if (res.status === "verified") return finalise(res.finalAllocation);
+  msg(msgEl,"POST SUBMITTED FOR VERIFICATION. USE REFRESH STATUS TO CHECK AGAIN.",true);
+}
+async function refreshStatus(msgEl){
+  clearMsg(msgEl);
+  msg(msgEl,"CHECKING STATUS...",true);
+  const res = await api({ action:"postStatus", token:state.token });
+  if (!res.ok) return msg(msgEl, errText(res.code));
+  if (res.status === "verified") return finalise(res.finalAllocation);
+  if (res.status === "rejected") return msg(msgEl,"VERIFICATION COULD NOT BE COMPLETED.");
+  if (res.status === "none")     return msg(msgEl,"NO POST SUBMITTED YET.");
+  msg(msgEl,"STILL AWAITING VERIFICATION.",true);
+}
+$("btn-post").addEventListener("click", () => submitPost("posturl","btn-post","msg-boost"));
+$("btn-cpost").addEventListener("click", () => submitPost("cposturl","btn-cpost","msg-comm"));
+$("btn-refresh").addEventListener("click", () => refreshStatus("msg-boost"));
+$("btn-crefresh").addEventListener("click", () => refreshStatus("msg-comm"));
 
-async function boostVerified(finalAlloc){
-  const b = $("boost-block");
-  b.innerHTML = '<h2>Allocation boost verified</h2>'
-    + '<p class="alloc-label" style="margin-top:16px">YOUR FINAL ALLOCATION</p>'
-    + '<p class="alloc" id="final-alloc">0<small>$MECHANICA</small></p>'
-    + '<div class="alloc-bar" id="final-bar"></div>'
-    + '<p class="printer" id="final-line" style="margin-top:16px"></p>';
-  await countTo($("final-alloc"), finalAlloc, "$MECHANICA", 950);
-  $("final-bar").style.width = "100%";
-  await type($("final-line"),"1.5\u00D7 ALLOCATION VERIFIED",46);
-  $("result-flag").textContent = "BOOSTED";
+/* ---------- verified result ---------- */
+async function finalise(finalAlloc){
+  const community = state.mode === "community";
+  const b = $(community ? "comm-block" : "boost-block");
+  b.innerHTML =
+    '<h2 id="fin-head"></h2>'
+  + '<p class="alloc-label" style="margin-top:16px">'+(community?"YOUR COMMUNITY ALLOCATION":"YOUR FINAL ALLOCATION")+'</p>'
+  + '<p class="alloc" id="fin-alloc">0<small>$MECHANICA</small></p>'
+  + '<div class="alloc-bar'+(community?" warm":"")+'" id="fin-bar"></div>'
+  + '<p class="printer" id="fin-line" style="margin-top:16px"></p>';
+
+  await type($("fin-head"), community ? "COMMUNITY ALLOCATION VERIFIED" : "ALLOCATION BOOST VERIFIED", 44);
+  await countTo($("fin-alloc"), finalAlloc, 950);
+  $("fin-bar").style.width = "100%";
+  await type($("fin-line"), community ? "POST VERIFICATION COMPLETE" : "1.5\u00D7 ALLOCATION VERIFIED", 46);
+  $(community ? "comm-flag" : "result-flag").textContent = "VERIFIED";
 }
 
 /* ---------- reset ---------- */
-$("btn-another").addEventListener("click", () => {
-  state.wallet = ""; state.token = ""; state.alloc = 0;
-  state.boost = 0; state.display = ""; state.handle = "";
-  $("wallet").value = ""; $("result-title").textContent = "";
-  clearMsg("msg-wallet"); clearMsg("msg-gate");
-  location.reload();
+Array.prototype.forEach.call(document.querySelectorAll(".check-another"), b => {
+  b.addEventListener("click", () => location.reload());
 });
 
 /* ---------- init ---------- */
 (function init(){
   const p = document.querySelector(".platen");
   for (let i=0;i<44;i++) p.appendChild(document.createElement("i"));
-  drawCaptcha();
   $("wallet").addEventListener("keydown", e => { if (e.key === "Enter") $("btn-check").click(); });
-  $("capinput").addEventListener("keydown", e => { if (e.key === "Enter") $("btn-verify").click(); });
+  $("xhandle").addEventListener("keydown", e => { if (e.key === "Enter") $("btn-continue").click(); });
 })();
 </script>
 </body>
