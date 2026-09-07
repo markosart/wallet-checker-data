@@ -590,7 +590,7 @@ function submitPost(inputId, btnId, msgEl){
 
   saveLocal({ submittedPost: url, submittedFor: state.display, submittedAt: Date.now() });
   $(btnId).disabled = true;
-  msg(msgEl,"POST SUBMITTED. Your post has been recorded on this device for this checker session.", true);
+  msg(msgEl,"POST SUBMITTED FOR REVIEW. Your X post link will be verified before your allocation is updated.", true);
   click(1000);
 }
 $("btn-post").addEventListener("click", () => submitPost("posturl","btn-post","msg-boost"));
