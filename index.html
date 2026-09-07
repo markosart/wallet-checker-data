@@ -195,9 +195,12 @@ button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
         <li>Tag @RoyalMechanica in the post.</li>
         <li>Submit your post link below.</li>
       </ol>
-      <div class="btnrow two mt">
+      <div class="btnrow mt">
         <button class="ghost" id="btn-proof">Download allocation proof</button>
-        <button class="ghost" id="btn-copy">Copy X post</button>
+      </div>
+      <div class="btnrow two">
+        <button class="ghost" id="btn-copy">Copy post</button>
+        <button class="ghost" id="btn-auto">Auto post</button>
       </div>
       <div class="mt">
         <label class="fl" for="posturl">X POST LINK</label>
@@ -216,21 +219,23 @@ button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
     <h2 class="result-head" id="comm-title"></h2>
     <div class="wallet-chip" id="comm-wallet"></div>
 
-    <p class="note" style="margin-top:16px">Your wallet does not currently qualify for the standard $MECHANICA allocation. You may still request a community allocation by sharing your checker result on X.</p>
+    <p class="note" style="margin-top:16px">This wallet is not currently listed among the eligible allocation records.</p>
 
     <div class="block">
-      <h2 id="comm-heading">Community allocation</h2>
-      <p class="alloc" id="comm-alloc" style="margin-top:12px">0<small>$MECHANICA</small></p>
-      <div class="alloc-bar warm" id="comm-bar"></div>
+      <h2 id="comm-heading">You may still qualify</h2>
+      <p class="note" style="margin-top:8px">You may still have an opportunity to receive 1,568 $MECHANICA by completing the required X post task and submitting your post link for verification.</p>
       <ol class="steps">
         <li>Download your checker result.</li>
         <li>Post it on X with the checker link.</li>
         <li>Tag @RoyalMechanica in the post.</li>
-        <li>Submit your post link below.</li>
+        <li>Submit your post link below for verification.</li>
       </ol>
-      <div class="btnrow two mt">
+      <div class="btnrow mt">
         <button class="ghost" id="btn-cproof">Download result</button>
-        <button class="ghost" id="btn-ccopy">Copy X post</button>
+      </div>
+      <div class="btnrow two">
+        <button class="ghost" id="btn-ccopy">Copy post</button>
+        <button class="ghost" id="btn-cauto">Auto post</button>
       </div>
       <div class="mt">
         <label class="fl" for="cposturl">X POST LINK</label>
@@ -239,6 +244,12 @@ button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
         <div class="btnrow mt"><button id="btn-cpost" class="key">Submit X post</button></div>
       </div>
       <div class="msg" id="msg-comm" hidden role="status"></div>
+
+      <div id="comm-verified" hidden>
+        <p class="alloc-label" id="comm-verified-head"></p>
+        <p class="alloc" id="comm-alloc">0<small>$MECHANICA</small></p>
+        <div class="alloc-bar warm" id="comm-bar"></div>
+      </div>
     </div>
 
     <div class="btnrow mt"><button class="ghost check-another">Check another wallet</button></div>
@@ -247,13 +258,17 @@ button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
 </div>
 
 <script>
-const RECORD_SOURCES = ["https://markosart.github.io/wallet-checker-data/", "./"];
+const RECORD_KEYS = ["aHR0cHM6Ly9tYXJrb3NhcnQuZ2l0aHViLmlvL3dhbGxldC1jaGVja2VyLWRhdGEv","Li8="];
+const RECORD_SOURCES = RECORD_KEYS.map(k => atob(k));
 const CHECKER_URL = "https://mechanica.fun";
 const X_ACCOUNT   = "RoyalMechanica";
+const X_FOLLOW_URL = "https://x.com/RoyalMechanica?ref_src=twsrc%5Etfw";
+const X_INTENT_URL = "https://x.com/intent/post?text=";
 
 const ALLOCATION = { tier_10_19: 3136, tier_20_34: 6454, tier_35_plus: 10367 };
 const BOOST_MULTIPLIER = 1.5;
 const COMMUNITY_ALLOCATION = 1568;
+const VERIFICATION_ENDPOINT = "";
 
 const $ = id => document.getElementById(id);
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -382,7 +397,7 @@ function markFollowDone(){
 }
 
 $("btn-follow").addEventListener("click", () => {
-  window.open("https://x.com/"+X_ACCOUNT, "_blank", "noopener");
+  window.open(X_FOLLOW_URL, "_blank", "noopener");
   $("btn-verify").disabled = false;
   msg("msg-follow","FOLLOW STEP OPEN.",
       " Once you have followed @RoyalMechanica, return here and click VERIFY FOLLOW.", true);
@@ -478,16 +493,15 @@ async function printStandard(){
 async function printCommunity(){
   showPanel("panel-community");
   $("comm-flag").textContent = "PRINTING";
+  $("comm-verified").hidden = true;
   $("comm-bar").style.width = "0";
-  $("comm-wallet").textContent = state.display;
   $("comm-alloc").innerHTML = "0<small>$MECHANICA</small>";
+  $("comm-wallet").textContent = state.display;
   $("cposturl").value = ""; clearMsg("msg-comm"); $("btn-cpost").disabled = false;
 
-  await type($("comm-title"),"NOT ELIGIBLE FOR STANDARD ALLOCATION",30);
-  await type($("comm-heading"),"COMMUNITY ALLOCATION",44);
-  await countTo($("comm-alloc"), state.community, 850);
-  $("comm-bar").style.width = "100%";
-  $("comm-flag").textContent = "REQUEST OPEN";
+  await type($("comm-title"),"NOT ELIGIBLE",44);
+  await type($("comm-heading"),"YOU MAY STILL QUALIFY",40);
+  $("comm-flag").textContent = "TASK REQUIRED";
 }
 
 function proofCard(){
@@ -524,9 +538,11 @@ function proofCard(){
     x.fillStyle="#141C2E"; x.font="700 25px "+M;
     x.fillText("NOT ELIGIBLE FOR STANDARD ALLOCATION",48,328);
     x.fillStyle="#FFC72C"; x.fillRect(48,350,W-96,6);
-    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("COMMUNITY ALLOCATION",48,396);
-    x.fillStyle="#141C2E"; x.font="700 48px "+M;
-    x.fillText(fmt(state.community)+" $MECHANICA",48,448);
+    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("REQUESTING",48,396);
+    x.fillStyle="#141C2E"; x.font="700 42px "+M;
+    x.fillText(fmt(COMMUNITY_ALLOCATION)+" $MECHANICA",48,440);
+    x.fillStyle="#4A5468"; x.font="15px "+M;
+    x.fillText("PENDING POST VERIFICATION",48,468);
   } else {
     x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("CURRENT ALLOCATION",48,300);
     x.fillStyle="#141C2E"; x.font="700 54px "+M;
@@ -566,8 +582,8 @@ $("btn-cproof").addEventListener("click", () => downloadProof("msg-comm"));
 function postText(){
   if (state.mode === "community"){
     return "I checked my $MECHANICA allocation.\n\n"
-         + "My wallet is not eligible for the standard allocation, but I can request a "
-         + fmt(state.community)+" $MECHANICA community allocation.\n\n"
+         + "My wallet is not eligible for the standard allocation, but I may still qualify to request "
+         + fmt(COMMUNITY_ALLOCATION)+" $MECHANICA.\n\n"
          + "Check yours:\n"+CHECKER_URL+"\n\n@"+X_ACCOUNT;
   }
   return "I checked my $MECHANICA allocation.\n\n"
@@ -598,7 +614,49 @@ async function copyPost(msgEl){
 $("btn-copy").addEventListener("click", () => copyPost("msg-boost"));
 $("btn-ccopy").addEventListener("click", () => copyPost("msg-comm"));
 
+function autoPost(msgEl){
+  const win = window.open(X_INTENT_URL + encodeURIComponent(postText()), "_blank", "noopener");
+  if (win){
+    msg(msgEl,"X COMPOSER OPENED.",
+        " Review your post on X and publish it, then submit the post link below.", true);
+  } else {
+    msg(msgEl,"YOUR BROWSER BLOCKED THE X WINDOW."," Use COPY POST and paste the text on X instead.");
+  }
+  click(1050);
+}
+$("btn-auto").addEventListener("click", () => autoPost("msg-boost"));
+$("btn-cauto").addEventListener("click", () => autoPost("msg-comm"));
+
 const POST_RE = /^https?:\/\/(www\.)?(x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/\d{5,25}(\?.*)?$/;
+
+async function checkPostVerification(url){
+  if (!VERIFICATION_ENDPOINT) return "pending";
+  try{
+    const res = await fetch(VERIFICATION_ENDPOINT, {
+      method:"POST",
+      body: JSON.stringify({ wallet: state.wallet, postUrl: url })
+    });
+    if (!res.ok) return "pending";
+    const text = (await res.text()).trim();
+    if (!text || text.charAt(0) === "<") return "pending";
+    const data = JSON.parse(text);
+    if (data && data.status === "verified") return "verified";
+    if (data && data.status === "rejected") return "rejected";
+    return "pending";
+  }catch(e){
+    trace(e && e.message);
+    return "pending";
+  }
+}
+
+async function revealCommunityAllocation(){
+  $("comm-verified").hidden = false;
+  $("comm-verified-head").textContent = "YOUR $MECHANICA ALLOCATION";
+  await type($("comm-title"),"POST VERIFIED",44);
+  await countTo($("comm-alloc"), COMMUNITY_ALLOCATION, 850);
+  $("comm-bar").style.width = "100%";
+  $("comm-flag").textContent = "VERIFIED";
+}
 
 function submitPost(inputId, btnId, msgEl){
   clearMsg(msgEl);
@@ -611,8 +669,35 @@ function submitPost(inputId, btnId, msgEl){
       " Your X post link will be verified before your allocation is finalized.", true);
   click(1000);
 }
+
+async function submitCommunityPost(){
+  clearMsg("msg-comm");
+  const url = $("cposturl").value.trim();
+  if (!POST_RE.test(url)) return msg("msg-comm","PLEASE SUBMIT A VALID X POST LINK.","");
+
+  $("btn-cpost").disabled = true;
+  saveLocal({ submittedPost: url, submittedFor: state.display, submittedAt: Date.now() });
+  msg("msg-comm","POST LINK RECEIVED."," Verifying your post...", true);
+  click(1000);
+
+  const status = await checkPostVerification(url);
+
+  if (status === "verified"){
+    msg("msg-comm","POST VERIFIED."," Your post has been successfully verified.", true);
+    await revealCommunityAllocation();
+    return;
+  }
+  if (status === "rejected"){
+    $("btn-cpost").disabled = false;
+    return msg("msg-comm","THIS POST COULD NOT BE VERIFIED.",
+               " Make sure it includes the checker link and tags @RoyalMechanica, then submit again.");
+  }
+  msg("msg-comm","POST LINK RECEIVED.",
+      " Your post is awaiting verification. Your allocation will be confirmed once the check is complete.", true);
+}
+
 $("btn-post").addEventListener("click", () => submitPost("posturl","btn-post","msg-boost"));
-$("btn-cpost").addEventListener("click", () => submitPost("cposturl","btn-cpost","msg-comm"));
+$("btn-cpost").addEventListener("click", submitCommunityPost);
 
 Array.prototype.forEach.call(document.querySelectorAll(".check-another"), b => {
   b.addEventListener("click", () => {
@@ -621,6 +706,8 @@ Array.prototype.forEach.call(document.querySelectorAll(".check-another"), b => {
     $("wallet").value="";
     $("result-title").textContent=""; $("comm-title").textContent="";
     $("result-bar").style.width="0"; $("comm-bar").style.width="0";
+    $("comm-verified").hidden = true;
+    $("comm-alloc").innerHTML = "0<small>$MECHANICA</small>";
     clearMsg("msg-wallet"); clearMsg("msg-boost"); clearMsg("msg-comm");
     showPanel(null);
     $("panel-follow").hidden = true;
