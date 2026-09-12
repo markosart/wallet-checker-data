@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mechanica Token Checker</title>
-<meta name="description" content="Check your $MECHANICA token allocation.">
+<meta name="description" content="Wallet verification is complete. Follow @RoyalMechanica on X for allocation announcements.">
 <link rel="canonical" href="https://mechanica.fun">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mechanica.fun">
 <meta property="og:title" content="Mechanica Token Checker">
-<meta property="og:description" content="Check your $MECHANICA token allocation.">
+<meta property="og:description" content="Wallet verification is complete. Follow @RoyalMechanica on X for allocation announcements.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mechanica Token Checker">
-<meta name="twitter:description" content="Check your $MECHANICA token allocation.">
+<meta name="twitter:description" content="Wallet verification is complete. Follow @RoyalMechanica on X for allocation announcements.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -55,7 +55,6 @@ h1 .split{display:block}
 .headrule span:nth-child(4){background:var(--mint)}
 
 .sheet{border:1px solid var(--rule-strong);background:rgba(255,253,246,.55);padding:20px 16px;margin-bottom:20px}
-.sheet[hidden]{display:none}
 .sheet-label{
   font-size:11px;letter-spacing:.18em;color:var(--ink-soft);
   border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:16px;
@@ -64,74 +63,50 @@ h1 .split{display:block}
 .sheet-label b{font-weight:400;color:var(--orange)}
 .sheet-label b.done{color:var(--mint)}
 
-label.fl{display:block;font-size:12px;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:7px}
-input[type=text]{
-  width:100%;font-family:var(--mono);font-size:15px;color:var(--ink);
-  background:var(--paper);border:1px solid var(--rule-strong);border-radius:0;
-  padding:13px 12px;letter-spacing:.02em;overflow-wrap:break-word;
+.stamp-head{
+  font-size:clamp(19px,5.6vw,26px);font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  border-bottom:2px solid var(--navy);padding-bottom:10px;min-height:38px;line-height:1.25;
 }
-input[type=text]:focus{outline:2px solid var(--mint);outline-offset:1px;background:#fffdf6}
-input::placeholder{color:rgba(74,84,104,.55)}
+.bar{height:6px;background:var(--mint);margin-top:14px;width:0;transition:width .6s ease-out}
+.bar.lime{background:var(--lime)}
+.bar.warm{background:var(--yellow)}
 
-button{
+p.body{font-size:14px;line-height:1.65;margin-top:16px}
+p.body + p.body{margin-top:12px}
+.note{font-size:12.5px;color:var(--ink-soft);margin-top:14px;line-height:1.6}
+
+a.btn,button{
+  display:block;text-align:center;text-decoration:none;
   font-family:var(--mono);font-size:14px;letter-spacing:.12em;text-transform:uppercase;
   border:1px solid var(--navy);border-radius:0;background:var(--navy);color:var(--paper);
   padding:13px 16px;width:100%;cursor:pointer;font-weight:700;
   box-shadow:3px 3px 0 rgba(20,28,46,.28);transition:transform .06s linear,box-shadow .06s linear;
 }
-button:hover{background:#1d2c49}
-button:active{transform:translate(3px,3px);box-shadow:0 0 0 rgba(0,0,0,0)}
-button:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
-button[disabled]{opacity:.4;cursor:not-allowed;box-shadow:none;transform:none}
-button.ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong);box-shadow:2px 2px 0 rgba(20,28,46,.18)}
-button.ghost:hover{background:var(--paper-2)}
-button.ghost[disabled]:hover{background:transparent}
-button.key{background:var(--lime);color:var(--navy);border-color:var(--navy)}
-button.key:hover{background:#d4ff54}
-button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
-.btnrow{display:grid;gap:10px;margin-top:14px}
-.mt{margin-top:16px}
+a.btn:hover{background:#1d2c49}
+a.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 rgba(0,0,0,0)}
+a.btn:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+a.btn.key{background:var(--lime);color:var(--navy)}
+a.btn.key:hover{background:#d4ff54}
+a.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong);box-shadow:2px 2px 0 rgba(20,28,46,.18)}
+a.btn.ghost:hover{background:var(--paper-2)}
+.btnrow{display:grid;gap:10px;margin-top:18px}
 
-.msg{font-size:13px;margin-top:12px;padding:10px 12px;border-left:3px solid var(--orange);background:rgba(242,107,33,.09)}
-.msg.ok{border-left-color:var(--mint);background:rgba(53,196,181,.1)}
-.msg strong{display:block;letter-spacing:.1em;margin-bottom:4px}
-.msg[hidden]{display:none}
-.note{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6}
-.task p{font-size:13.5px;line-height:1.6}
+.ledger{margin-top:18px;border-top:1px solid var(--rule)}
+.ledger div{
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  border-bottom:1px solid var(--rule);padding:11px 0;font-size:13px;
+}
+.ledger dt{color:var(--ink-soft);letter-spacing:.1em;font-size:11px}
+.ledger dd{text-align:right;font-weight:700;overflow-wrap:anywhere}
+.ledger dd.open{color:var(--orange)}
+.ledger dd.shut{color:var(--mint)}
 
-.printer{font-size:14px;letter-spacing:.06em;color:var(--ink-soft);min-height:22px}
-.caret::after{content:"▌";color:var(--orange);animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
+.callout{border-left:3px solid var(--yellow);background:rgba(255,199,44,.12);padding:12px 14px;margin-top:16px;font-size:13px;line-height:1.6}
 
-.result-head{
-  font-size:clamp(17px,5vw,23px);font-weight:700;text-transform:uppercase;letter-spacing:.05em;
-  border-bottom:2px solid var(--navy);padding-bottom:10px;margin-bottom:4px;min-height:34px;line-height:1.25;
-}
-.wallet-chip{
-  display:inline-block;margin-top:14px;border:1px solid var(--rule-strong);
-  background:var(--paper-2);padding:6px 10px;font-size:14px;letter-spacing:.06em;
-}
-.alloc-label{font-size:11px;letter-spacing:.18em;color:var(--ink-soft);margin-top:22px}
-.alloc{font-size:clamp(30px,10vw,52px);font-weight:700;line-height:1.05;margin-top:6px;letter-spacing:-.01em;overflow-wrap:anywhere}
-.alloc small{font-size:.42em;letter-spacing:.06em;display:block;margin-top:6px;color:var(--ink-soft);font-weight:400}
-.alloc-bar{height:6px;background:var(--lime);margin-top:14px;width:0;transition:width .5s ease-out}
-.alloc-bar.warm{background:var(--yellow)}
+.foot{text-align:center;font-size:11.5px;color:var(--ink-soft);letter-spacing:.08em;margin-top:30px;line-height:1.8}
+.foot a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
 
-.block{border-top:2px solid var(--navy);margin-top:26px;padding-top:18px}
-.block h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.block .amount{font-size:clamp(22px,7vw,34px);font-weight:700;margin-top:10px;color:var(--navy)}
-.block .amount em{font-style:normal;color:var(--orange)}
-.steps{margin:14px 0 0;padding:0;list-style:none;counter-reset:s}
-.steps li{
-  counter-increment:s;font-size:13px;color:var(--ink-soft);
-  padding:7px 0 7px 26px;border-bottom:1px solid var(--rule);position:relative;line-height:1.5;
-}
-.steps li::before{
-  content:counter(s);position:absolute;left:0;top:7px;width:17px;height:17px;
-  border:1px solid var(--rule-strong);font-size:10px;
-  display:flex;align-items:center;justify-content:center;color:var(--ink);
-}
-@media (min-width:560px){ .btnrow.two{grid-template-columns:1fr 1fr} .sheet{padding:24px 22px} }
+@media (min-width:560px){ .sheet{padding:24px 22px} .btnrow.two{grid-template-columns:1fr 1fr} }
 @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
 </style>
 </head>
@@ -143,168 +118,69 @@ button.key[disabled]{background:var(--paper-2);color:var(--ink-soft)}
 
   <header class="head">
     <h1><span class="split">Mechanica</span><span class="split">Token Checker</span></h1>
-    <p class="sub">Check your $MECHANICA token allocation.</p>
+    <p class="sub">Wallet verification round complete.</p>
     <div class="headrule" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   </header>
 
-  <section class="sheet" id="panel-wallet">
-    <div class="sheet-label"><span>WALLET ENTRY</span><b id="wallet-flag">OPEN</b></div>
-    <label class="fl" for="wallet">WALLET ADDRESS</label>
-    <input type="text" id="wallet" inputmode="text" autocomplete="off" autocapitalize="none"
-           spellcheck="false" maxlength="42" placeholder="0x0000000000000000000000000000000000000000">
-    <div class="btnrow"><button id="btn-check" class="key">Check allocation</button></div>
-    <div class="msg" id="msg-wallet" hidden role="alert"></div>
-    <p class="note">One wallet at a time. Each wallet is checked separately.</p>
-  </section>
+  <section class="sheet">
+    <div class="sheet-label"><span>MACHINE STATUS</span><b class="done" id="flag">CLOSED</b></div>
+    <h2 class="stamp-head" id="headline"></h2>
+    <div class="bar" id="bar"></div>
 
-  <section class="sheet" id="panel-follow" hidden>
-    <div class="sheet-label"><span>REQUIRED TASK</span><b id="follow-flag">LOCKED</b></div>
-    <div class="task">
-      <p><strong>FOLLOW @RoyalMechanica</strong></p>
-      <p style="margin-top:8px">Please follow @RoyalMechanica on X before checking your $MECHANICA allocation.</p>
+    <p class="body">The wallet verification round is now closed. The checker is no longer accepting wallet addresses.</p>
+    <p class="body">Allocation figures, distribution dates and claim instructions will be published through official announcements on X. Nothing will be sent to you directly, and no one from the team will contact you first.</p>
+
+    <div class="ledger">
+      <div><dt>WALLET VERIFICATION</dt><dd class="shut">CLOSED</dd></div>
+      <div><dt>ALLOCATION ANNOUNCEMENT</dt><dd class="open">UPCOMING</dd></div>
+      <div><dt>DISTRIBUTION</dt><dd class="open">UPCOMING</dd></div>
     </div>
-    <div class="btnrow two">
-      <button class="ghost" id="btn-follow">Follow on X</button>
-      <button class="key" id="btn-verify" disabled>Verify follow</button>
-    </div>
-    <div class="msg" id="msg-follow" hidden role="status"></div>
   </section>
 
-  <section class="sheet" id="panel-run" hidden>
-    <div class="sheet-label"><span>MACHINE STATUS</span><b>RUNNING</b></div>
-    <p class="printer caret" id="run-line">CHECKING WALLET</p>
-    <div class="alloc-bar" id="run-bar" style="width:0"></div>
-  </section>
+  <section class="sheet">
+    <div class="sheet-label"><span>STAY UPDATED</span><b>REQUIRED</b></div>
+    <h2 class="stamp-head" style="font-size:clamp(17px,4.8vw,22px)">Follow for announcements</h2>
+    <div class="bar lime" id="bar2"></div>
 
-  <section class="sheet" id="panel-result" hidden>
-    <div class="sheet-label"><span>ALLOCATION RECORD</span><b id="result-flag">PRINTING</b></div>
-    <h2 class="result-head" id="result-title"></h2>
-    <div class="wallet-chip" id="result-wallet"></div>
+    <p class="body">Every update from here on is announced on X. Follow @RoyalMechanica so you see the allocation and claim announcements when they are published.</p>
 
-    <p class="alloc-label">YOUR $MECHANICA ALLOCATION</p>
-    <p class="alloc" id="result-alloc">0<small>$MECHANICA</small></p>
-    <div class="alloc-bar" id="result-bar"></div>
-
-    <div class="block">
-      <h2>Request 1.5× allocation</h2>
-      <p class="note" style="margin-top:8px">You may request a 1.5× allocation by sharing your allocation result on X.</p>
-      <p class="amount">Potential: <em id="boost-amount">0</em> $MECHANICA</p>
-      <ol class="steps">
-        <li>Download your allocation proof.</li>
-        <li>Post it on X with the checker link.</li>
-        <li>Tag @RoyalMechanica in the post.</li>
-        <li>Submit your post link below.</li>
-      </ol>
-      <div class="btnrow mt">
-        <button class="ghost" id="btn-proof">Download allocation proof</button>
-      </div>
-      <div class="btnrow two">
-        <button class="ghost" id="btn-copy">Copy post</button>
-        <button class="ghost" id="btn-auto">Auto post</button>
-      </div>
-      <div class="mt">
-        <label class="fl" for="posturl">X POST LINK</label>
-        <input type="text" id="posturl" autocomplete="off" spellcheck="false" maxlength="300"
-               placeholder="https://x.com/username/status/000000">
-        <div class="btnrow mt"><button id="btn-post" class="key">Submit X post</button></div>
-      </div>
-      <div class="msg" id="msg-boost" hidden role="status"></div>
+    <div class="btnrow">
+      <a class="btn key" href="https://x.com/RoyalMechanica?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">Follow @RoyalMechanica on X</a>
     </div>
 
-    <div class="btnrow mt"><button class="ghost check-another">Check another wallet</button></div>
+    <p class="note">Turn on post notifications for the account so announcements are not missed.</p>
   </section>
 
-  <section class="sheet" id="panel-community" hidden>
-    <div class="sheet-label"><span>CHECK RESULT</span><b id="comm-flag">PRINTING</b></div>
-    <h2 class="result-head" id="comm-title"></h2>
-    <div class="wallet-chip" id="comm-wallet"></div>
+  <section class="sheet">
+    <div class="sheet-label"><span>ROYAL MECHANICA NFT</span><b>OPEN</b></div>
+    <h2 class="stamp-head" style="font-size:clamp(17px,4.8vw,22px)">Holders may receive more</h2>
+    <div class="bar warm" id="bar3"></div>
 
-    <p class="note" style="margin-top:16px">This wallet is not currently listed among the eligible allocation records.</p>
+    <p class="body">A share of the $MECHANICA supply is reserved for Royal Mechanica NFT holders, separate from the wallet verification round.</p>
+    <p class="body">Holding an NFT is expected to carry the largest per-wallet allocation of any group in the distribution.</p>
 
-    <div class="block">
-      <h2 id="comm-heading">You may still qualify</h2>
-      <p class="note" style="margin-top:8px">You may still have an opportunity to receive 1,568 $MECHANICA by completing the required X post task and submitting your post link for verification.</p>
-      <ol class="steps">
-        <li>Download your checker result.</li>
-        <li>Post it on X with the checker link.</li>
-        <li>Tag @RoyalMechanica in the post.</li>
-        <li>Submit your post link below for verification.</li>
-      </ol>
-      <div class="btnrow mt">
-        <button class="ghost" id="btn-cproof">Download result</button>
-      </div>
-      <div class="btnrow two">
-        <button class="ghost" id="btn-ccopy">Copy post</button>
-        <button class="ghost" id="btn-cauto">Auto post</button>
-      </div>
-      <div class="mt">
-        <label class="fl" for="cposturl">X POST LINK</label>
-        <input type="text" id="cposturl" autocomplete="off" spellcheck="false" maxlength="300"
-               placeholder="https://x.com/username/status/000000">
-        <div class="btnrow mt"><button id="btn-cpost" class="key">Submit X post</button></div>
-      </div>
-      <div class="msg" id="msg-comm" hidden role="status"></div>
-
-      <div id="comm-verified" hidden>
-        <p class="alloc-label" id="comm-verified-head"></p>
-        <p class="alloc" id="comm-alloc">0<small>$MECHANICA</small></p>
-        <div class="alloc-bar warm" id="comm-bar"></div>
-      </div>
+    <div class="callout">
+      The per-NFT amount has not been decided yet. It will be announced on X before any snapshot is taken, together with the qualifying collections and the snapshot block.
     </div>
 
-    <div class="btnrow mt"><button class="ghost check-another">Check another wallet</button></div>
+    <div class="btnrow">
+      <a class="btn" href="https://opensea.io/collection/theroyalmechanica" target="_blank" rel="noopener">View collection on OpenSea</a>
+    </div>
+
+    <p class="note">NFT prices move and allocations are announced in advance, not guaranteed in advance. Treat any purchase as your own decision, not as a promised return.</p>
   </section>
+
+  <p class="foot">
+    MECHANICA TOKEN CHECKER<br>
+    Official announcements: <a href="https://x.com/RoyalMechanica?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">@RoyalMechanica</a>
+  </p>
 
 </div>
 
 <script>
-const RECORD_KEYS = ["aHR0cHM6Ly9tYXJrb3NhcnQuZ2l0aHViLmlvL3dhbGxldC1jaGVja2VyLWRhdGEv","Li8="];
-const RECORD_SOURCES = RECORD_KEYS.map(k => atob(k));
-const CHECKER_URL = "https://mechanica.fun";
-const X_ACCOUNT   = "RoyalMechanica";
-const X_FOLLOW_URL = "https://x.com/RoyalMechanica?ref_src=twsrc%5Etfw";
-const X_INTENT_URL = "https://x.com/intent/post?text=";
-
-const ALLOCATION = { tier_10_19: 3136, tier_20_34: 6454, tier_35_plus: 10367 };
-const BOOST_MULTIPLIER = 1.5;
-const COMMUNITY_ALLOCATION = 1568;
-const VERIFICATION_ENDPOINT = "";
-
-const $ = id => document.getElementById(id);
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const PANELS = ["panel-run","panel-result","panel-community"];
-const LS = "mechanica_checker_v1";
-
-const state = { wallet:"", mode:"", alloc:0, boost:0, community:0, display:"", followed:false };
-let pendingWallet = "";
-
-const fmt = n => Number(n).toLocaleString("en-US",{maximumFractionDigits:1});
-const shorten = w => w.slice(0,4) + "..." + w.slice(-4);
-const trace = m => { try{ console.debug("[checker]", m); }catch(e){} };
-
-function msg(el, heading, detail, ok){
-  const n = $(el);
-  n.hidden = false;
-  n.classList.toggle("ok", !!ok);
-  n.textContent = "";
-  const h = document.createElement("strong");
-  h.textContent = heading;
-  n.appendChild(h);
-  if (detail) n.appendChild(document.createTextNode(detail));
-}
-function clearMsg(el){ $(el).hidden = true; }
-
-function saveLocal(patch){
-  try{
-    const cur = JSON.parse(localStorage.getItem(LS) || "{}");
-    localStorage.setItem(LS, JSON.stringify(Object.assign(cur, patch)));
-  }catch(e){ trace("storage unavailable"); }
-}
-function readLocal(){
-  try{ return JSON.parse(localStorage.getItem(LS) || "{}"); }catch(e){ return {}; }
-}
-
 let actx = null;
+
 function click(freq){
   if (REDUCED) return;
   try{
@@ -314,21 +190,9 @@ function click(freq){
     const o = actx.createOscillator(), g = actx.createGain(), f = actx.createBiquadFilter();
     f.type="bandpass"; f.frequency.value=freq||1800; f.Q.value=6;
     o.type="square"; o.frequency.setValueAtTime(freq||1800,t);
-    g.gain.setValueAtTime(.05,t); g.gain.exponentialRampToValueAtTime(.0007,t+.045);
+    g.gain.setValueAtTime(.045,t); g.gain.exponentialRampToValueAtTime(.0007,t+.045);
     o.connect(f); f.connect(g); g.connect(actx.destination);
     o.start(t); o.stop(t+.05);
-  }catch(e){}
-}
-function ding(){
-  if (REDUCED) return;
-  try{
-    actx = actx || new (window.AudioContext||window.webkitAudioContext)();
-    const t = actx.currentTime;
-    const o = actx.createOscillator(), g = actx.createGain();
-    o.type="triangle"; o.frequency.setValueAtTime(1320,t);
-    g.gain.setValueAtTime(.09,t); g.gain.exponentialRampToValueAtTime(.0005,t+.7);
-    o.connect(g); g.connect(actx.destination);
-    o.start(t); o.stop(t+.72);
   }catch(e){}
 }
 
@@ -340,391 +204,20 @@ function type(el,text,speed){
       if (i >= text.length) return res();
       el.textContent += text[i];
       if (text[i] !== " ") click(1500 + ((i*137)%700));
-      i++; setTimeout(step, speed||42);
+      i++; setTimeout(step, speed||44);
     };
     step();
   });
 }
-function countTo(el,target,ms){
-  return new Promise(res => {
-    const suffix = "<small>$MECHANICA</small>";
-    if (REDUCED){ el.innerHTML = fmt(target)+suffix; return res(); }
-    const start = performance.now(), dur = ms||900;
-    const tick = now => {
-      const p = Math.min(1,(now-start)/dur), e = 1-Math.pow(1-p,3);
-      el.innerHTML = fmt(Math.round(target*e*10)/10)+suffix;
-      if (p<1){ if (Math.random()<.4) click(900+Math.random()*500); requestAnimationFrame(tick); }
-      else { el.innerHTML = fmt(target)+suffix; ding(); res(); }
-    };
-    requestAnimationFrame(tick);
-  });
-}
 
-const isWallet = w => /^0x[0-9a-fA-F]{40}$/.test(w);
-const groupFor = w => w.slice(2,4);
-const groupCache = {};
-
-async function loadGroup(key){
-  if (groupCache[key]) return groupCache[key];
-  let failure = null;
-  for (let i = 0; i < RECORD_SOURCES.length; i++){
-    try{
-      const res = await fetch(RECORD_SOURCES[i] + key + ".json", { cache:"force-cache" });
-      if (!res.ok){ failure = new Error("status " + res.status); continue; }
-      const data = await res.json();
-      groupCache[key] = data;
-      return data;
-    }catch(e){ failure = e; }
-  }
-  throw failure || new Error("unavailable");
-}
-
-async function lookupWallet(input){
-  const wallet = String(input).trim().toLowerCase();
-  const data = await loadGroup(groupFor(wallet));
-  const rec = data[wallet];
-  if (!rec || !ALLOCATION[rec.tier]) return null;
-  return rec;
-}
-
-function showPanel(id){ PANELS.forEach(p => $(p).hidden = (p !== id)); }
-
-function markFollowDone(){
-  state.followed = true;
-  $("follow-flag").textContent = "COMPLETED";
-  $("follow-flag").classList.add("done");
-  saveLocal({ followStepDone:true });
-}
-
-$("btn-follow").addEventListener("click", () => {
-  window.open(X_FOLLOW_URL, "_blank", "noopener");
-  $("btn-verify").disabled = false;
-  msg("msg-follow","FOLLOW STEP OPEN.",
-      " Once you have followed @RoyalMechanica, return here and click VERIFY FOLLOW.", true);
-  click(1200);
-});
-
-$("btn-verify").addEventListener("click", async () => {
-  markFollowDone();
-  clearMsg("msg-follow");
-  $("panel-follow").hidden = true;
-  await startCheck(pendingWallet, true);
-});
-
-$("btn-check").addEventListener("click", () => {
-  clearMsg("msg-wallet");
-  const raw = $("wallet").value.trim();
-  if (!isWallet(raw)) return msg("msg-wallet","PLEASE ENTER A VALID WALLET ADDRESS.","");
-  pendingWallet = raw.toLowerCase();
-
-  if (!state.followed){
-    $("panel-wallet").hidden = true;
-    $("btn-verify").disabled = true;
-    clearMsg("msg-follow");
-    $("panel-follow").hidden = false;
-    $("panel-follow").scrollIntoView({ behavior: REDUCED?"auto":"smooth", block:"start" });
-    click(1000);
-    return;
-  }
-  startCheck(pendingWallet, false);
-});
-
-async function startCheck(wallet, fromVerify){
-  $("panel-follow").hidden = true;
-  $("panel-wallet").hidden = true;
-  showPanel("panel-run");
-  $("run-bar").style.width = "0";
-  const line = $("run-line");
-
-  if (fromVerify){
-    await type(line,"VERIFYING FOLLOW STEP...",34);
-    $("run-bar").style.width = "25%";
-  }
-
-  await type(line,"CHECKING WALLET...",38);
-  $("run-bar").style.width = "55%";
-
-  let rec;
-  try{
-    rec = await lookupWallet(wallet);
-  }catch(err){
-    trace(err && err.message);
-    showPanel(null);
-    $("panel-wallet").hidden = false;
-    return msg("msg-wallet","THE ALLOCATION DATABASE IS TEMPORARILY UNAVAILABLE."," Please try again.");
-  }
-
-  await type(line,"READING ALLOCATION RECORD...",34);
-  $("run-bar").style.width = "100%";
-
-  state.wallet  = wallet;
-  state.display = shorten(wallet);
-
-  if (rec){
-    state.mode  = "standard";
-    state.alloc = ALLOCATION[rec.tier];
-    state.boost = Math.round(state.alloc * BOOST_MULTIPLIER * 10) / 10;
-    saveLocal({ lastWallet: state.display });
-    await printStandard();
-  } else {
-    state.mode      = "community";
-    state.community = COMMUNITY_ALLOCATION;
-    saveLocal({ lastWallet: state.display });
-    await printCommunity();
-  }
-}
-
-async function printStandard(){
-  showPanel("panel-result");
-  $("result-flag").textContent = "PRINTING";
-  $("result-bar").style.width = "0";
-  $("result-wallet").textContent = state.display;
-  $("result-alloc").innerHTML = "0<small>$MECHANICA</small>";
-  $("boost-amount").textContent = fmt(state.boost);
-  $("posturl").value = ""; clearMsg("msg-boost"); $("btn-post").disabled = false;
-
-  await type($("result-title"),"ALLOCATION FOUND",44);
-  await type($("result-title"),"ALLOCATION VERIFIED",44);
-  await countTo($("result-alloc"), state.alloc, 900);
-  $("result-bar").style.width = "100%";
-  $("result-flag").textContent = "RECORDED";
-}
-
-async function printCommunity(){
-  showPanel("panel-community");
-  $("comm-flag").textContent = "PRINTING";
-  $("comm-verified").hidden = true;
-  $("comm-bar").style.width = "0";
-  $("comm-alloc").innerHTML = "0<small>$MECHANICA</small>";
-  $("comm-wallet").textContent = state.display;
-  $("cposturl").value = ""; clearMsg("msg-comm"); $("btn-cpost").disabled = false;
-
-  await type($("comm-title"),"NOT ELIGIBLE",44);
-  await type($("comm-heading"),"YOU MAY STILL QUALIFY",40);
-  $("comm-flag").textContent = "TASK REQUIRED";
-}
-
-function proofCard(){
-  const W=1000, H=524, c=document.createElement("canvas");
-  c.width=W; c.height=H;
-  const x=c.getContext("2d");
-  const M="'Courier Prime','Courier New',monospace";
-  const community = state.mode === "community";
-
-  x.fillStyle="#F2EBDA"; x.fillRect(0,0,W,H);
-  x.strokeStyle="rgba(20,28,46,.07)";
-  for (let y=28;y<H;y+=28){ x.beginPath(); x.moveTo(0,y); x.lineTo(W,y); x.stroke(); }
-
-  x.fillStyle="#16233B"; x.fillRect(0,0,W,52);
-  const cols=["#C8F73C","#FFC72C","#F26B21","#35C4B5"];
-  for (let i=0;i<40;i++){
-    x.fillStyle = i%4===0 ? cols[(i/4)%4|0] : "rgba(242,235,218,.25)";
-    x.fillRect(24+i*24,20,8,i%4===0?16:10);
-  }
-
-  x.fillStyle="#141C2E"; x.font="700 40px "+M;
-  x.fillText("MECHANICA TOKEN CHECKER",48,122);
-  x.fillStyle="#4A5468"; x.font="17px "+M;
-  x.fillText(community?"CHECK RESULT":"ALLOCATION RESULT",48,154);
-
-  x.strokeStyle="rgba(20,28,46,.45)"; x.lineWidth=1;
-  x.beginPath(); x.moveTo(48,178); x.lineTo(W-48,178); x.stroke();
-
-  x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("WALLET",48,212);
-  x.fillStyle="#141C2E"; x.font="700 26px "+M; x.fillText(state.display,48,244);
-
-  if (community){
-    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("STATUS",48,296);
-    x.fillStyle="#141C2E"; x.font="700 25px "+M;
-    x.fillText("NOT ELIGIBLE FOR STANDARD ALLOCATION",48,328);
-    x.fillStyle="#FFC72C"; x.fillRect(48,350,W-96,6);
-    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("REQUESTING",48,396);
-    x.fillStyle="#141C2E"; x.font="700 42px "+M;
-    x.fillText(fmt(COMMUNITY_ALLOCATION)+" $MECHANICA",48,440);
-    x.fillStyle="#4A5468"; x.font="15px "+M;
-    x.fillText("PENDING POST VERIFICATION",48,468);
-  } else {
-    x.fillStyle="#4A5468"; x.font="14px "+M; x.fillText("CURRENT ALLOCATION",48,300);
-    x.fillStyle="#141C2E"; x.font="700 54px "+M;
-    x.fillText(fmt(state.alloc)+" $MECHANICA",48,350);
-    x.fillStyle="#C8F73C"; x.fillRect(48,368,W-96,6);
-    x.fillStyle="#4A5468"; x.font="14px "+M;
-    x.fillText("POTENTIAL 1.5\u00D7 ALLOCATION",48,412);
-    x.fillStyle="#F26B21"; x.font="700 34px "+M;
-    x.fillText(fmt(state.boost)+" $MECHANICA",48,450);
-  }
-
-  x.fillStyle="#16233B"; x.fillRect(0,H-38,W,38);
-  x.fillStyle="#F2EBDA"; x.font="15px "+M;
-  x.fillText(CHECKER_URL.replace(/^https?:\/\//,""),48,H-14);
-  x.textAlign="right"; x.fillText("@"+X_ACCOUNT,W-48,H-14);
-  return c;
-}
-
-function downloadProof(msgEl){
-  try{
-    proofCard().toBlob(b => {
-      const u=URL.createObjectURL(b), a=document.createElement("a");
-      a.href=u; a.download="mechanica-"+state.display.replace(/[^\w]/g,"")+".png";
-      document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(()=>URL.revokeObjectURL(u),3000);
-    },"image/png");
-    msg(msgEl,"PROOF DOWNLOADED.","",true);
-    click(900);
-  }catch(e){
-    trace(e && e.message);
-    msg(msgEl,"THE DOWNLOAD DID NOT COMPLETE."," Please try again.");
-  }
-}
-$("btn-proof").addEventListener("click", () => downloadProof("msg-boost"));
-$("btn-cproof").addEventListener("click", () => downloadProof("msg-comm"));
-
-function postText(){
-  if (state.mode === "community"){
-    return "I checked my $MECHANICA allocation.\n\n"
-         + "My wallet is not eligible for the standard allocation, but I may still qualify to request "
-         + fmt(COMMUNITY_ALLOCATION)+" $MECHANICA.\n\n"
-         + "Check yours:\n"+CHECKER_URL+"\n\n@"+X_ACCOUNT;
-  }
-  return "I checked my $MECHANICA allocation.\n\n"
-       + "Current allocation: "+fmt(state.alloc)+" $MECHANICA\n"
-       + "Potential 1.5\u00D7 allocation: "+fmt(state.boost)+" $MECHANICA\n\n"
-       + "Check yours:\n"+CHECKER_URL+"\n\n@"+X_ACCOUNT;
-}
-
-async function copyPost(msgEl){
-  const t = postText();
-  try{
-    await navigator.clipboard.writeText(t);
-    msg(msgEl,"X POST TEXT COPIED.","",true);
-  }catch(e){
-    const a=document.createElement("textarea");
-    a.value=t; a.style.position="fixed"; a.style.opacity="0";
-    document.body.appendChild(a); a.select();
-    try{
-      document.execCommand("copy");
-      msg(msgEl,"X POST TEXT COPIED.","",true);
-    }catch(_){
-      msg(msgEl,"COPY IS UNAVAILABLE IN THIS BROWSER."," Please copy the post text manually.");
-    }
-    a.remove();
-  }
-  click(1100);
-}
-$("btn-copy").addEventListener("click", () => copyPost("msg-boost"));
-$("btn-ccopy").addEventListener("click", () => copyPost("msg-comm"));
-
-function autoPost(msgEl){
-  const win = window.open(X_INTENT_URL + encodeURIComponent(postText()), "_blank", "noopener");
-  if (win){
-    msg(msgEl,"X COMPOSER OPENED.",
-        " Review your post on X and publish it, then submit the post link below.", true);
-  } else {
-    msg(msgEl,"YOUR BROWSER BLOCKED THE X WINDOW."," Use COPY POST and paste the text on X instead.");
-  }
-  click(1050);
-}
-$("btn-auto").addEventListener("click", () => autoPost("msg-boost"));
-$("btn-cauto").addEventListener("click", () => autoPost("msg-comm"));
-
-const POST_RE = /^https?:\/\/(www\.)?(x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/\d{5,25}(\?.*)?$/;
-
-async function checkPostVerification(url){
-  if (!VERIFICATION_ENDPOINT) return "pending";
-  try{
-    const res = await fetch(VERIFICATION_ENDPOINT, {
-      method:"POST",
-      body: JSON.stringify({ wallet: state.wallet, postUrl: url })
-    });
-    if (!res.ok) return "pending";
-    const text = (await res.text()).trim();
-    if (!text || text.charAt(0) === "<") return "pending";
-    const data = JSON.parse(text);
-    if (data && data.status === "verified") return "verified";
-    if (data && data.status === "rejected") return "rejected";
-    return "pending";
-  }catch(e){
-    trace(e && e.message);
-    return "pending";
-  }
-}
-
-async function revealCommunityAllocation(){
-  $("comm-verified").hidden = false;
-  $("comm-verified-head").textContent = "YOUR $MECHANICA ALLOCATION";
-  await type($("comm-title"),"POST VERIFIED",44);
-  await countTo($("comm-alloc"), COMMUNITY_ALLOCATION, 850);
-  $("comm-bar").style.width = "100%";
-  $("comm-flag").textContent = "VERIFIED";
-}
-
-function submitPost(inputId, btnId, msgEl){
-  clearMsg(msgEl);
-  const url = $(inputId).value.trim();
-  if (!POST_RE.test(url)) return msg(msgEl,"PLEASE SUBMIT A VALID X POST LINK.","");
-
-  saveLocal({ submittedPost: url, submittedFor: state.display, submittedAt: Date.now() });
-  $(btnId).disabled = true;
-  msg(msgEl,"POST LINK RECEIVED.",
-      " Your X post link will be verified before your allocation is finalized.", true);
-  click(1000);
-}
-
-async function submitCommunityPost(){
-  clearMsg("msg-comm");
-  const url = $("cposturl").value.trim();
-  if (!POST_RE.test(url)) return msg("msg-comm","PLEASE SUBMIT A VALID X POST LINK.","");
-
-  $("btn-cpost").disabled = true;
-  saveLocal({ submittedPost: url, submittedFor: state.display, submittedAt: Date.now() });
-  msg("msg-comm","POST LINK RECEIVED."," Verifying your post...", true);
-  click(1000);
-
-  const status = await checkPostVerification(url);
-
-  if (status === "verified"){
-    msg("msg-comm","POST VERIFIED."," Your post has been successfully verified.", true);
-    await revealCommunityAllocation();
-    return;
-  }
-  if (status === "rejected"){
-    $("btn-cpost").disabled = false;
-    return msg("msg-comm","THIS POST COULD NOT BE VERIFIED.",
-               " Make sure it includes the checker link and tags @RoyalMechanica, then submit again.");
-  }
-  msg("msg-comm","POST LINK RECEIVED.",
-      " Your post is awaiting verification. Your allocation will be confirmed once the check is complete.", true);
-}
-
-$("btn-post").addEventListener("click", () => submitPost("posturl","btn-post","msg-boost"));
-$("btn-cpost").addEventListener("click", submitCommunityPost);
-
-Array.prototype.forEach.call(document.querySelectorAll(".check-another"), b => {
-  b.addEventListener("click", () => {
-    state.wallet=""; state.mode=""; state.alloc=0; state.boost=0;
-    state.community=0; state.display=""; pendingWallet="";
-    $("wallet").value="";
-    $("result-title").textContent=""; $("comm-title").textContent="";
-    $("result-bar").style.width="0"; $("comm-bar").style.width="0";
-    $("comm-verified").hidden = true;
-    $("comm-alloc").innerHTML = "0<small>$MECHANICA</small>";
-    clearMsg("msg-wallet"); clearMsg("msg-boost"); clearMsg("msg-comm");
-    showPanel(null);
-    $("panel-follow").hidden = true;
-    $("panel-wallet").hidden = false;
-    window.scrollTo({ top:0, behavior: REDUCED?"auto":"smooth" });
-    $("wallet").focus();
-  });
-});
-
-window.addEventListener("error", e => { trace(e && e.message); if (e.preventDefault) e.preventDefault(); });
-window.addEventListener("unhandledrejection", e => { if (e.preventDefault) e.preventDefault(); });
-
-(function init(){
+(async function init(){
   const p = document.querySelector(".platen");
   for (let i=0;i<44;i++) p.appendChild(document.createElement("i"));
-  if (readLocal().followStepDone) markFollowDone();
-  $("wallet").addEventListener("keydown", e => { if (e.key === "Enter") $("btn-check").click(); });
+
+  await type(document.getElementById("headline"),"VERIFICATION COMPLETE",46);
+  document.getElementById("bar").style.width = "100%";
+  document.getElementById("bar2").style.width = "100%";
+  document.getElementById("bar3").style.width = "100%";
 })();
 </script>
 </body>
